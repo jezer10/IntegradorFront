@@ -1,38 +1,73 @@
 <template>
   <div class="main_wrapper py-12 px-16 h-screen">
-    <header class="main_header flex justify-between">
-      <div class="header_logo ">
-        <Logo class="" />
+    <div class="login_wrapper flex justify-center items-center h-full">
+      <div class="login_container w-80 flex flex-col items-center">
+        <div class="login_logo my-8">
+          <Logo class="w-full" />
+        </div>
+        <div class="login_form space-y-4 w-full">
+          <div class="user_form_control flex items-center relative w-full">
+            <input
+              class="
+                text-lg
+                user_input
+                outline-none
+                placeholder-white
+                px-4
+                py-2
+                rounded-lg
+                w-full
+                pr-12
+                text-white
+              "
+              type="text"
+              placeholder="Usuario"
+            />
+            <UserIcon class="mr-3 w-6 text-white absolute right-0" />
+          </div>
+          <div class="pass_form_control flex items-center relative w-full">
+            <input
+              class="
+                text-lg
+                pass_input
+                outline-none
+                placeholder-white
+                px-4
+                py-2
+                rounded-lg
+                w-full
+                pr-12
+                text-white
+              "
+              type="text"
+              placeholder="Contraseña"
+            />
+            <LockClosedIcon class="mr-3 w-6 text-white absolute right-0" />
+          </div>
+        </div>
       </div>
-      <nav class="header_navigation space-x-6 font-roboto">
-        <router-link to="/" class="white text-white"
-          >Mas Información</router-link
-        >
-        <router-link to="/" class="white text-white">Contacto</router-link>
-        <button class="btn_register text-white px-8 py-2 rounded-full">
-          Registrarse
-        </button>
-        <button class="btn_login text-white px-8 py-2 rounded-full">
-          Iniciar Sesión
-        </button>
-      </nav>
-    </header>
+    </div>
   </div>
 </template>
 <script>
 import Logo from "@/assets/images/logo.svg";
+
+import { UserIcon, LockClosedIcon } from "@heroicons/vue/solid";
 export default {
-  components: { Logo },
+  data: () => ({}),
+  components: {
+    UserIcon,
+    LockClosedIcon,
+    Logo,
+  },
 };
 </script>
 <style scoped>
 .main_wrapper {
   background-color: #575ce5;
 }
-.btn_register {
-  background-color: #4447a5;
-}
-.btn_login{
-    background-color: #ED8B52;
+.user_input,
+.pass_input {
+  background-color: #6469ff;
 }
 </style>

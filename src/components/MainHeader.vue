@@ -1,9 +1,9 @@
 <template>
-  <header class="main_header flex justify-between">
+  <header class="main_header flex justify-between items-center">
     <div class="header_logo">
-      <Logo class="" />
+      <img src="@/assets/images/oilogo.png" alt="" class="w-32" />
     </div>
-    <nav class="header_navigation space-x-6 font-roboto">
+    <nav class="header_navigation space-x-6 font-roboto flex items-center">
       <router-link to="/" class="white text-white">Mas Información</router-link>
       <router-link to="/" class="white text-white">Contacto</router-link>
       <button class="btn_register text-white px-8 py-2 rounded-full">
@@ -16,9 +16,8 @@
   </header>
 </template>
 <script>
-import Logo from "@/assets/images/logo.svg";
 export default {
-  components: { Logo },
+  components: {  },
 };
 </script>
 <style scoped>

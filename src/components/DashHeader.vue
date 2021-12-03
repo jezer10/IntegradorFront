@@ -1,5 +1,5 @@
 <template>
-  <header class="dash_header p-8 flex justify-between">
+  <header class="dash_header  flex justify-between items-center px-8 h-1/10">
     <div class="header_logo">
       <img src="@/assets/images/oilogo.png" alt="" class="w-32" />
     </div>

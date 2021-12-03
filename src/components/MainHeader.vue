@@ -1,5 +1,5 @@
 <template>
-  <header class="main_header flex justify-between items-center">
+  <header class="main_header h-1/10 flex justify-between items-center">
     <div class="header_logo">
       <img src="@/assets/images/oilogo.png" alt="" class="w-32" />
     </div>
@@ -17,7 +17,6 @@
 </template>
 <script>
 export default {
-  components: {  },
 };
 </script>
 <style scoped>

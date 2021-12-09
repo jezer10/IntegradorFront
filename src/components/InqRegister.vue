@@ -23,40 +23,45 @@
           class="ipt w-full rounded-lg shadow px-4 py-2"
           type="text"
           placeholder="Nombres"
+          v-model="registerModel.firstname"
         />
         <input
           class="ipt w-full rounded-lg shadow px-4 py-2"
           type="text"
           placeholder="Apellidos"
+          v-model="registerModel.lastname"
+        />
+        <input
+          class="ipt w-full rounded-lg shadow px-4 py-2"
+          type="text"
+          placeholder="Edad"
+          v-model="registerModel.age"
         />
         <input
           class="ipt w-full rounded-lg shadow px-4 py-2"
           type="text"
           placeholder="Número de telefono"
+          v-model="registerModel.phone"
         />
         <input
           class="ipt w-full rounded-lg shadow px-4 py-2"
           type="text"
           placeholder="Correo Electrónico"
+          v-model="registerModel.mail"
         />
         <input
           class="ipt w-full rounded-lg shadow px-4 py-2"
           type="text"
           placeholder="País o ciudad"
+          v-model="registerModel.location"
         />
         <textarea
           class="ipt w-full rounded-lg shadow resize-none px-4 py-2"
           rows="6"
           placeholder="Motivo de consulta"
+          v-model="registerModel.atentionDescription"
         ></textarea>
-        <div
-          class="
-            accept_terms_container
-            flex
-            items-center
-            space-x-2
-          "
-        >
+        <div class="accept_terms_container flex items-center space-x-2">
           <input type="checkbox" class="" />
           <span class="text-white"
             >Acepto las políticas de privacidad y uso de datos</span
@@ -64,6 +69,7 @@
         </div>
         <div class="submit_container py-2">
           <button
+            @click="registerInquiry"
             class="btn w-full rounded-lg shadow py-4 text-xl font-medium mt-8"
           >
             Siguiente
@@ -73,6 +79,24 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data: () => ({
+    registerModel: {},
+  }),
+  
+  methods: {
+    registerInquiry() {
+      console.log(this.registerModel);
+      this.$router.push({
+        name: "preferences",
+        query: this.registerModel,
+      });
+    },
+  },
+};
+</script>
 
 <style scoped>
 .ipt {

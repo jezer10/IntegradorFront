@@ -9,11 +9,18 @@
           <span class="font-bold text-2xl">Pendientes</span>
         </div>
         <div class="issues_list_container h-9/10 overflow-y-auto">
-          <div class="issues_list_wrapper space-y-8">
+          <div class="issues_list_wrapper space-y-8 h-full">
+            <div
+              class="blank_banner flex justify-center items-center h-full"
+              v-if="derivationsIssues.length == 0"
+            >
+              <span class="text-gray-500">No hay Derivaciones</span>
+            </div>
             <DerivationsInfoCard
               v-for="d in derivationsIssues"
               :key="d.id"
               :derivationInfo="d"
+              :derivationAction="true"
             />
           </div>
         </div>
@@ -23,8 +30,15 @@
           <span class="font-bold text-2xl">Derivados</span>
         </div>
         <div class="completed_list_container h-9/10 overflow-y-auto">
-          <div class="completed_list_wrapper space-y-8">
+          <div class="completed_list_wrapper space-y-8 h-full">
+            <div
+              class="blank_banner flex justify-center items-center h-full"
+              v-if="derivationsCompleted.length == 0"
+            >
+              <span class="text-gray-500">No hay Derivaciones</span>
+            </div>
             <DerivationsInfoCard
+              :derivationAction="false"
               v-for="d in derivationsCompleted"
               :key="d.id"
               :derivationInfo="d"
@@ -36,13 +50,31 @@
   </section>
 </template>
 <script>
+import atentions from "../api/atentions.api";
 import DerivationsInfoCard from "./DerivationsInfoCard.vue";
 export default {
   components: { DerivationsInfoCard },
   data: () => ({
-    derivationsIssues: [1, 2, 3, 4, 5],
-    derivationsCompleted: [{ state: "hola" }, { state: "hola" }],
+    derivationsIssues: [],
+    derivationsCompleted: [],
   }),
+
+  async mounted() {
+    this.getPendientAtentions();
+    this.getDerivedAtentions();
+  },
+  methods: {
+    async getPendientAtentions() {
+      const response = await atentions.getPendientAtentions();
+      this.derivationsIssues = response;
+      console.log(response);
+    },
+    async getDerivedAtentions() {
+      const response = await atentions.getDerivedAtentions();
+      this.derivationsCompleted = response;
+      console.log(response);
+    },
+  },
 };
 </script>
 

@@ -1,4 +1,6 @@
 <template>
+  <notifications position="bottom right" :max="1" :ignoreDuplicates="true"/>
+
   <div class="app_wrapper">
     <router-view></router-view>
   </div>
@@ -9,13 +11,13 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #C4C4C4;
+  background: #c4c4c4;
   border-radius: 25px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #6A6A6A;
+  background: #6a6a6a;
   border-radius: 25px;
 }
 

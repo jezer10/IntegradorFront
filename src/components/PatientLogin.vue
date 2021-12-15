@@ -104,6 +104,17 @@ export default {
   data: () => ({
     accessKey: ["", "", "", "", "", ""],
   }),
+  mounted() {
+    this.$emit("headerUpdate", [
+      { path: {}, name: "Mas Información", type: "none" },
+      { path: {}, name: "Contacto", type: "none" },
+      {
+        path: { name: "patientform" },
+        name: "¿No tienes consulta?",
+        type: "secondary",
+      },
+    ]);
+  },
   methods: {
     tryLogin() {
       console.log(this.accessKey.join(""));

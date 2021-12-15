@@ -85,7 +85,17 @@ export default {
   data: () => ({
     registerModel: {},
   }),
-  
+  mounted() {
+    this.$emit("headerUpdate", [
+      { path: {}, name: "Mas Información", type: "none" },
+      { path: {}, name: "Contacto", type: "none" },
+      {
+        path: { name: "patientlogin" },
+        name: "¿Ya tienes consulta?",
+        type: "secondary",
+      },
+    ]);
+  },
   methods: {
     registerInquiry() {
       console.log(this.registerModel);

@@ -58,7 +58,10 @@
               <span class="font-bold text-lg">Psicologos</span>
             </div>
           </div>
-          <div class="option_card bg-white p-8 rounded-lg flex flex-col">
+          <div
+            class="option_card bg-white p-8 rounded-lg flex flex-col"
+            @click="derivationsRoute"
+          >
             <div
               class="
                 option_card__img_container
@@ -139,6 +142,11 @@ export default {
   methods: {
     async getPendientUsers() {
       this.registerUsers = await users.getPendientUsers();
+    },
+    derivationsRoute() {
+      this.$router.push({
+        name: "derivationslist",
+      });
     },
   },
 };

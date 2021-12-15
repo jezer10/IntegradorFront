@@ -52,7 +52,7 @@
     </div>
 
     <button
-      @click="derivationAction ? routeDerivations : cancelDerivation"
+      @click="derivationAction ? routeDerivations() : cancelDerivation()"
       class="issues_action w-full font-bold text-lg rounded-lg text-white py-4"
       :class="derivationAction ? 'bg-primary' : 'bg-danger-dark'"
     >
@@ -67,7 +67,7 @@ export default {
   data: () => ({}),
   methods: {
     routeDerivations() {
-      
+      this.$router.push({name:"realization"})
       console.log("hola");
     },
     cancelDerivation() {

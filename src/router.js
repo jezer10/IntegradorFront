@@ -17,18 +17,24 @@ import DerivationsRealizationList from "@/components/DerivationsRealizationList.
 import PsyList from "@/components/PsyList.vue";
 import Login from "@/components/Login.vue";
 import SelectProfessional from "@/components/SelectProfessional.vue";
+import BlankMain from "@/components/BlankMain.vue";
 
 const router = createRouter({
   history: createWebHistory(),
 
   routes: [
-    { path: "/test", component: InqInfoModal },
-
     {
       path: "/",
       component: Main,
+      redirect: { name: "foobar" },
       children: [
-        { path: "specialist/login", component: Login },
+        { path: "options", component: BlankMain, name: "foobar" },
+        {
+          path: "specialist/login",
+          component: Login,
+          props: { navbar: false },
+          name: "specialistlogin",
+        },
         { path: "specialist/register", component: Register },
         {
           path: "patient/register",
@@ -56,17 +62,23 @@ const router = createRouter({
     {
       path: "/admin",
       component: Dash,
+      redirect: { name: "resume" },
       children: [
         { path: "psylist", component: PsyList },
-        { path: "resume", component: AdminResume },
+        { path: "resume", component: AdminResume, name: "resume" },
         { path: "inqlist", component: AdminInqList },
-        { path: "derivationslist", component: AdminDerivationsList },
+        {
+          path: "derivationslist",
+          component: AdminDerivationsList,
+          name: "derivationslist",
+        },
         {
           path: "derivationsrealization",
+          name: "realization",
           component: AdminDerivationsRealization,
           children: [
             { path: "", component: DerivationsRealizationOption },
-            { path: "list", component: DerivationsRealizationList },
+            { path: "list", component: DerivationsRealizationList ,name:"realizationlist"},
           ],
         },
       ],

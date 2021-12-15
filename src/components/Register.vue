@@ -168,20 +168,45 @@
   </div>
 </template>
 <script>
-import users from "../api/users.api"
+import users from "../api/users.api";
 export default {
   data: () => ({
     academicDegreeOptions: ["3er Año", "4to Año", "5to Año", "Bachiller"],
     registerFormData: { gender: "", academicDegree: "" },
     formFile: "",
   }),
+  mounted() {
+    this.$emit("headerUpdate", [
+      
+      {
+        path: { name: "specialistlogin" },
+        name: "Ya tengo una cuenta",
+        type: "secondary",
+      },
+    ]);
+  },
   methods: {
     async uploadData() {
       console.log(this.registerFormData);
-      const response = await users.registerUser(this.formFile,this.registerFormData)
-      console.log(response)
+      const response = await users.registerUser(
+        this.formFile,
+        this.registerFormData
+      );
 
-
+      if (response) {
+        this.$notify({
+          title: "Registro Satisfactorio",
+          type: "success",
+        });
+        this.$router.push({
+          path: "/",
+        });
+      } else {
+        this.$notify({
+          title: "Ocurrio un error",
+          type: "error",
+        });
+      }
     },
     changeFile(e) {
       this.formFile = e.target.files[0];

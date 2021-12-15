@@ -92,6 +92,9 @@ export default {
     UserIcon,
     LockClosedIcon,
   },
+  mounted(){
+    this.$emit("headerUpdate",false)
+  }
 };
 </script>
 

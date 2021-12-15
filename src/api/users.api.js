@@ -18,7 +18,11 @@ const registerUser = async (file, registerData) => {
       "Content-Type": "multipart/form-data",
     },
   });
-  console.log(response);
+
+  if(response.status==200){
+    return true
+  }
+  return false
 };
 
 const denegateUser = async (iduser) => {

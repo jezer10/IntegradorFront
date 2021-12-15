@@ -110,7 +110,25 @@ export default {
   }),
 
   mounted() {
-    this.registerModel = this.$route.query;
+    this.$emit("headerUpdate", [
+      { path: {}, name: "Mas Información", type: "none" },
+      { path: {}, name: "Contacto", type: "none" },
+      {
+        path: { name: "specialistlogin" },
+        name: "¿Tienes una consulta?",
+        type: "secondary",
+      },
+    ]);
+
+    const object = this.$route.query;
+    console.log(object);
+    if (Object.keys(object).length === 0) {
+      this.$router.push({
+        name: "patientform",
+      });
+    } else {
+      this.registerModel = object;
+    }
   },
   methods: {
     goBack() {

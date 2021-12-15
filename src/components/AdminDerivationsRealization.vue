@@ -21,7 +21,7 @@
           <div class="info_row grid grid-cols-3 w-full">
             <div class="info_first_name flex flex-col">
               <span class="font-bold text-lg">Nombres</span>
-              <span class="">Jezer Gabriel Rázuri Pichén</span>
+              <span class="">Jezer Gabriel</span>
             </div>
             <div class="info_last_name flex flex-col">
               <span class="font-bold text-lg">Apellidos</span>
@@ -82,14 +82,18 @@
               text-white text-lg
             "
           >
-            <option value="" class="">Leve</option>
+            <option value="i.id" class="" v-for="i in inqEstado" :key="i.id">
+              Leve
+            </option>
           </select>
           <select
             name=""
             id=""
             class="rounded shadow py-2 px-4 focus:outline-none text-lg"
           >
-            <option value="" class="">Leve</option>
+            <option value="i.id" class="" v-for="i in inqDiagnosis" :key="i.id">
+              {{ i.name }}
+            </option>
           </select>
         </div>
       </div>
@@ -136,7 +140,18 @@ export default {
   data: () => ({
     derivationsIssues: [1, 2, 3, 4, 5],
     derivationsCompleted: [{ state: "hola" }, { state: "hola" }],
+    inqEstado: [
+      { id: "1", name: "Leve" },
+      { id: "2", name: "Moderado" },
+      { id: "3", name: "Grave" },
+    ],
+    inqDiagnosis: [
+      { id: "1", name: "Ansiedad" },
+      { id: "2", name: "Depresion" },
+      { id: "3", name: "Estres" },
+    ],
   }),
+  
 };
 </script>
 

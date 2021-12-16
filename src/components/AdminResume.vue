@@ -26,7 +26,10 @@
       </div>
       <div class="admin_options_container w-7/12 h-full">
         <div class="options_grid grid grid-cols-2 grid-rows-2 gap-4 h-full">
-          <div class="option_card bg-white p-8 rounded-lg flex flex-col">
+          <div
+            class="option_card bg-white p-8 rounded-lg flex flex-col"
+            @click="inqListRoute"
+          >
             <div
               class="
                 option_card__img_container
@@ -42,7 +45,7 @@
               <span class="font-bold text-lg">Consultas</span>
             </div>
           </div>
-          <div class="option_card bg-white p-8 rounded-lg flex flex-col">
+          <div class="option_card bg-white p-8 rounded-lg flex flex-col" @click="psyListRoute">
             <div
               class="
                 option_card__img_container
@@ -146,6 +149,16 @@ export default {
     derivationsRoute() {
       this.$router.push({
         name: "derivationslist",
+      });
+    },
+    psyListRoute() {
+      this.$router.push({
+        name: "psylist",
+      });
+    },
+    inqListRoute() {
+      this.$router.push({
+        name: "inqlist",
       });
     },
   },

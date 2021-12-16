@@ -22,17 +22,24 @@
     </div>
     <div
       class="
+
         inq_form_container
         w-full
         sm:w-1/2
         flex
-        justify-end
+        flex-col
+        sm:flex-row
+        sm:justify-end
         h-full
         items-center
         2xl:px-16
       "
     >
+    <div class="inq_form_title py-2 sm:hidden">
+      <span class="text-white font-bold">Registrar Consulta</span>
+    </div>
       <div class="inq_form w-full">
+      
         <div class="inputs_container grid grid-cols-1 sm:grid-cols-2 gap-2">
           <input
             class="ipt w-full rounded-lg shadow px-4 py-2"

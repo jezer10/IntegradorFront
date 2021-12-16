@@ -3,7 +3,7 @@
     <div class="derivations_title h-1/10 flex items-center">
       <span class="font-bold text-2xl">Derivaciones</span>
     </div>
-    <div class="derivations_container h-9/10 px-8 py-8 space-x-64 flex">
+    <div class="derivations_container h-9/10 px-8 py-8 space-x-4 2xl:space-x-64 flex">
       <div class="derivations_issues_container w-1/2 h-full">
         <div class="issues_title flex justify-center h-1/10">
           <span class="font-bold text-2xl">Pendientes</span>

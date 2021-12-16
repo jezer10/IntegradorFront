@@ -4,6 +4,7 @@
       main_header
       sm:h-1/10
       fixed
+      sm:static
       w-full
       top-0
       l-0
@@ -21,6 +22,7 @@
         justify-between
         px-2
         focus:outline-none
+        sm:hidden
       "
     >
       <button
@@ -39,16 +41,22 @@
         <MenuIcon class="text-white" />
       </button>
       <div class="header_logo px-4">
-        <img src="@/assets/images/oilogo.png" alt="" class="w-16" />
+        <button
+          @click="routeMainPage"
+          class="active:bg-primary rounded-full px-4 py-2"
+          style="-webkit-tap-highlight-color: transparent"
+        >
+          <img src="@/assets/images/logo_oido_amigo.png" alt="" class="w-16" />
+        </button>
       </div>
     </div>
 
     <div
-      class="nav-items w-11/12 bg-purple-50 fixed"
+      class="nav-items w-11/12 bg-purple-50 fixed sm:hidden"
       :class="isMenuOpen ? 'left-0' : '-left-full'"
     >
       <ul>
-        <li class="bg-primary-dark flex py-2 px-4" v-for="r in routes" :key="r">
+        <li class="bg-primary-dark flex py-2 px-4" v-for="r in rutas" :key="r">
           <router-link
             :to="{ name: r.path.name }"
             class="text-white font-bold"
@@ -59,10 +67,20 @@
     </div>
 
     <div
-      class="large_header_container hidden sm:flex justify-between items-center"
+      class="
+        large_header_container
+        hidden
+        sm:flex sm:justify-between sm:items-center
+        w-full
+      "
     >
       <div class="header_logo">
-        <img src="@/assets/images/oilogo.png" alt="" class="w-32" />
+        <button
+          class="active:bg-primary-dark rounded-full px-4 py-2"
+          @click="routeMainPage"
+        >
+          <img src="@/assets/images/logo_oido_amigo.png" alt="" class="w-24" />
+        </button>
       </div>
       <nav class="header_navigation space-x-6 font-roboto flex items-center">
         <router-link
@@ -99,6 +117,11 @@ export default {
     console.log(this.rutas);
   },
   methods: {
+    routeMainPage() {
+      this.$router.push({
+        path: "/",
+      });
+    },
     changeMenuState() {
       console.log("hola");
       this.isMenuOpen = !this.isMenuOpen;

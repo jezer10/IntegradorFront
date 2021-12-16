@@ -63,7 +63,7 @@ export default {
       { name: "stay at house" },
       { name: "stay at meudeus" },
     ],
-    isActiveModel: true,
+    isActiveModel: false,
     currentInq: { name: "stay at home" },
   }),
 };

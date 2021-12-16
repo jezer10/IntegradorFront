@@ -1,8 +1,8 @@
 <template>
-  <div class="login_wrapper flex justify-center items-center h-full">
-    <div class="login_container w-80 flex flex-col items-center">
-      <div class="login_logo my-16 px-8">
-        <img src="@/assets/images/oilogo.png" alt="" srcset="" />
+  <div class="login_wrapper flex justify-center items-center h-full px-4 sm:px-0">
+    <div class="login_container w-full sm:w-80 flex flex-col items-center">
+      <div class="login_logo my-8 2xl:my-16 px-8">
+        <img src="@/assets/images/logo_oido_amigo.png" alt="" srcset="" />
       </div>
       <div class="login_form space-y-4 w-full">
         <div class="user_form_control flex items-center relative w-full">
@@ -68,13 +68,15 @@
           </div>
         </div>
 
-        <div class="form_actions text-white space-y-4 py-16">
+        <div class="form_actions text-white space-y-4 sm:py-8 2xl:py-16">
           <button
             class="login_button rounded-lg w-full py-2 text-lg font-medium"
+            @click="logIn"
           >
             Iniciar Sesion
           </button>
           <button
+          @click="routerToRegister"
             class="register_button rounded-lg w-full py-2 text-lg font-medium"
           >
             Registrarse
@@ -94,6 +96,18 @@ export default {
   },
   mounted(){
     this.$emit("headerUpdate",false)
+  },
+  methods:{
+    logIn(){
+      this.$router.push({
+        name:"dashboard"
+      })
+    },
+    routerToRegister(){
+      this.$router.push({
+        name:"specialistregister"
+      })
+    }
   }
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
-  <div class="w-full h-full flex justify-center items-center">
-    <div class="center_container w-1/5 space-y-4">
+  <div class="w-full h-full flex justify-center items-center px-4">
+    <div class="center_container w-full sm:w-1/5 space-y-4">
       <div class="container_title">
         <span class="w-full flex justify-center font-bold text-lg text-white"
           >¿Quien deseas que te escuche?</span

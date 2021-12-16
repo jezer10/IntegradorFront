@@ -1,7 +1,12 @@
 <template>
-  <header class="dash_header  flex justify-between items-center px-8 h-1/10">
+  <header class="dash_header flex justify-between items-center px-8 h-1/10">
     <div class="header_logo">
-      <img src="@/assets/images/oilogo.png" alt="" class="w-32" />
+      <button
+        class="active:bg-primary-dark rounded-full px-4 py-2"
+        @click="routeMainDash"
+      >
+        <img src="@/assets/images/logo_oido_amigo.png" alt="" class="w-24" />
+      </button>
     </div>
     <div class="header_options flex space-x-8">
       <div class="text-white flex space-x-8">
@@ -11,8 +16,12 @@
         <button class="w-8 hover:bg-gray-900 rounded-full p-1">
           <BellIcon />
         </button>
+        <button class="w-8 hover:bg-gray-900 rounded-full p-1" @click="Logout">
+          <LogoutIcon />
+        </button>
       </div>
-      <SwitchGroup>
+
+      <!-- <SwitchGroup>
         <div class="invisible_switch flex items-center">
           <SwitchLabel class="mr-4 text-white text-sm font-semibold"
             >Modo Invisible</SwitchLabel
@@ -37,13 +46,19 @@
             />
           </Switch>
         </div>
-      </SwitchGroup>
+      </SwitchGroup> -->
     </div>
   </header>
 </template>
 
 <script>
-import { MailIcon, BellIcon, StarIcon, UserIcon } from "@heroicons/vue/solid";
+import {
+  MailIcon,
+  BellIcon,
+  StarIcon,
+  UserIcon,
+  LogoutIcon,
+} from "@heroicons/vue/solid";
 import { Switch, SwitchLabel, SwitchGroup } from "@headlessui/vue";
 export default {
   components: {
@@ -53,10 +68,23 @@ export default {
     StarIcon,
     SwitchLabel,
     SwitchGroup,
+    LogoutIcon,
   },
   data: () => ({
     enabled: false,
   }),
+  methods: {
+    routeMainDash() {
+      this.$router.push({
+        name: "dashboard",
+      });
+    },
+    Logout() {
+      this.$router.push({
+        name: "specialistlogin",
+      });
+    },
+  },
 };
 </script>
 <style scoped>

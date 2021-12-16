@@ -35,7 +35,11 @@ const router = createRouter({
           props: { navbar: false },
           name: "specialistlogin",
         },
-        { path: "specialist/register", component: Register },
+        {
+          path: "specialist/register",
+          component: Register,
+          name: "specialistregister",
+        },
         {
           path: "patient/register",
           component: InqRegister,
@@ -62,11 +66,12 @@ const router = createRouter({
     {
       path: "/admin",
       component: Dash,
+      name: "dashboard",
       redirect: { name: "resume" },
       children: [
-        { path: "psylist", component: PsyList },
+        { path: "psylist", component: PsyList, name: "psylist" },
         { path: "resume", component: AdminResume, name: "resume" },
-        { path: "inqlist", component: AdminInqList },
+        { path: "inqlist", component: AdminInqList, name: "inqlist" },
         {
           path: "derivationslist",
           component: AdminDerivationsList,
@@ -76,9 +81,14 @@ const router = createRouter({
           path: "derivationsrealization",
           name: "realization",
           component: AdminDerivationsRealization,
+
           children: [
             { path: "", component: DerivationsRealizationOption },
-            { path: "list", component: DerivationsRealizationList ,name:"realizationlist"},
+            {
+              path: "list",
+              component: DerivationsRealizationList,
+              name: "realizationlist",
+            },
           ],
         },
       ],

@@ -55,6 +55,7 @@
       </div>
       <div class="card_actions w-full">
         <button
+        @click="saveInfo"
           class="
             save_button
             rounded-lg
@@ -77,6 +78,11 @@
 import { EyeIcon } from "@heroicons/vue/solid";
 export default {
   components: { EyeIcon },
+  methods:{
+    saveInfo(){
+      this.$emit("hide")
+    }
+  }
 };
 </script>
 

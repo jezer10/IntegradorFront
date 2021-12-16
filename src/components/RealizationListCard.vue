@@ -1,7 +1,7 @@
 <template>
   <div
     @click="activeListItem"
-    class="psy_card w-full bg-white shadow rounded-lg h-1/3 flex"
+    class="psy_card w-full bg-white shadow rounded-lg h-1/2 2xl:h-1/3 flex"
     :class="isActive ? '' : 'hover:opacity-80 hover:shadow-none'"
   >
     <div
@@ -13,9 +13,10 @@
         flex flex-col
         justify-between
         p-4
+        text-xs 2xl:text-base
       "
     >
-      <div class="info_row flex space-x-2">
+      <div class="info_row flex space-x-2 ">
         <span class="font-bold">Nombre: </span>
         <span class="">{{ specialist.name }}</span>
       </div>

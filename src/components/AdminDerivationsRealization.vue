@@ -77,13 +77,15 @@
               shadow
               py-2
               px-4
-              bg-green-400
+              
               focus:outline-none
               text-white text-lg
             "
+            :class="severyBackClass(inqEstadoModel)"
+            v-model="inqEstadoModel"
           >
-            <option value="i.id" class="" v-for="i in inqEstado" :key="i.id">
-              Leve
+            <option :value="i.id" class="" v-for="i in inqEstado" :key="i.id">
+              {{ i.name }}
             </option>
           </select>
           <select
@@ -91,7 +93,7 @@
             id=""
             class="rounded shadow py-2 px-4 focus:outline-none text-lg"
           >
-            <option value="i.id" class="" v-for="i in inqDiagnosis" :key="i.id">
+            <option :value="i.id" class="" v-for="i in inqDiagnosis" :key="i.id">
               {{ i.name }}
             </option>
           </select>
@@ -137,12 +139,29 @@ import DerivationsInfoCard from "./DerivationsInfoCard.vue";
 import ConfirmModal from "./ConfirmModal.vue";
 export default {
   components: { DerivationsInfoCard, ConfirmModal },
+  methods: {
+
+    severyBackClass(val) {
+      console.log(val)
+      switch (val) {
+        case "1":
+          return "bg-success ";
+        case "2":
+          return "bg-warning";
+        case "3":
+          return "bg-danger-dark";
+        default:
+          return "bg-gray-500 ";
+      }
+    },
+  },
   data: () => ({
     derivationsIssues: [1, 2, 3, 4, 5],
     derivationsCompleted: [{ state: "hola" }, { state: "hola" }],
+    inqEstadoModel:'',
     inqEstado: [
       { id: "1", name: "Leve" },
-      { id: "2", name: "Moderado" },
+      { id: "2", name: "Moderada" },
       { id: "3", name: "Grave" },
     ],
     inqDiagnosis: [
@@ -151,7 +170,6 @@ export default {
       { id: "3", name: "Estres" },
     ],
   }),
-  
 };
 </script>
 

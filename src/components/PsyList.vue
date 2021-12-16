@@ -1,8 +1,9 @@
 <template>
-  <PsyInfoModal />
+  <PsyInfoModal v-show="isActiveModel"
+      v-on:hide="isActiveModel = false"/>
   <section class="h-full px-32">
     <div class="list_title h-1/10 flex items-center">
-      <span class="font-bold text-2xl">Psicólgos</span>
+      <span class="font-bold text-2xl">Psicólogos</span>
     </div>
     <div class="list_container h-9/10">
       <div class="list_header h-1/10 grid grid-cols-12">
@@ -108,8 +109,10 @@ import PsyInfoModal from "./PsyInfoModal.vue";
 
 export default {
   components: { PsyCard, PsyInfoModal },
+  
   data: () => ({
     psyList: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    isActiveModel:false
   }),
 };
 </script>

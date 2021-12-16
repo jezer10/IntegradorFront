@@ -1,12 +1,14 @@
 <template>
-  <div class="patient_container w-full flex">
+  <div class="patient_container w-full flex h-full px-4 sm:px-0">
     <div
       class="
         login_slider_container
         w-1/2
-        flex flex-col
-        items-center´
-        px-64
+        sm:flex sm:flex-col
+        sm:items-center´
+        hidden
+        px-32
+        2xl:px-64
         space-y-12
       "
     >
@@ -20,12 +22,12 @@
         >
       </div>
       <div class="slider_dots flex justify-center space-x-4 items-center">
-        <div class="dot rounded-full w-3 h-3 bg-primary-dark"></div>
-        <div class="dot rounded-full w-4 h-4 bg-white"></div>
-        <div class="dot rounded-full w-4 h-4 bg-white"></div>
+        <div class="dot rounded-full w-2 h-2 2xl:w-3 2xl:h-3 bg-primary-dark"></div>
+        <div class="dot rounded-full w-3 h-3 2xl:w-4 2xl:h-4 bg-white"></div>
+        <div class="dot rounded-full w-3 h-3 2xl:w-4 2xl:h-4 bg-white"></div>
       </div>
     </div>
-    <div class="login_form_container w-1/2 flex justify-center">
+    <div class="login_form_container w-full sm:w-1/2 flex justify-center h-full">
       <div
         class="
           code_form
@@ -33,10 +35,10 @@
           justify-center
           items-center
           text-white
-          space-y-24
+          space-y-8 sm:space-y-24
         "
       >
-        <div class="top_container px-8 flex flex-col items-center space-y-4">
+        <div class="top_container sm:px-8 flex flex-col items-center space-y-4">
           <span class="font-bold">Ingrese su código de atención</span>
           <div class="code_input_group space-x-2">
             <input

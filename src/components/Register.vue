@@ -1,163 +1,176 @@
 <template>
-  <div class="register_wrapper w-full px-96">
-    <div class="register_form__title py-8">
-      <span class="text-white font-bold text-4xl">Registro</span>
+  <div class="register_wrapper w-full 2xl:px-96 h-full px-4 overflow-scroll">
+    <div
+      class="
+        register_form__title
+        py-4
+        sm:py-8
+        flex
+        justify-center
+        sm:justify-start
+        items-center
+      "
+    >
+      <span class="text-white font-bold text-3xl sm:text-4xl">Registro</span>
     </div>
-    <div class="register_form grid grid-cols-2 gap-4">
-      <input
-        v-model="registerFormData.username"
-        placeholder="Nombre de usuario"
-        type="text"
-        class="
-          register_input
-          rounded-lg
-          px-4
-          py-2
-          outline-none
-          placeholder-gray-300
-          text-white
-        "
-      />
-      <input
-        v-model="registerFormData.firstname"
-        placeholder="Nombres"
-        type="text"
-        class="
-          register_input
-          rounded-lg
-          px-4
-          py-2
-          outline-none
-          placeholder-gray-300
-          text-white
-        "
-      />
-      <input
-        v-model="registerFormData.password"
-        placeholder="Contraseña"
-        type="text"
-        class="
-          register_input
-          rounded-lg
-          px-4
-          py-2
-          outline-none
-          placeholder-gray-300
-          text-white
-        "
-      />
-      <input
-        v-model="registerFormData.lastname"
-        placeholder="Apellidos"
-        type="text"
-        class="
-          register_input
-          rounded-lg
-          px-4
-          py-2
-          outline-none
-          placeholder-gray-300
-          text-white
-        "
-      />
-      <input
-        v-model="registerFormData.dni"
-        placeholder="DNI"
-        type="text"
-        class="
-          register_input
-          rounded-lg
-          px-4
-          py-2
-          outline-none
-          placeholder-gray-300
-          text-white
-        "
-      />
-      <input
-        v-model="registerFormData.phone"
-        placeholder="Número de teléfono"
-        type="text"
-        class="
-          register_input
-          rounded-lg
-          px-4
-          py-2
-          outline-none
-          placeholder-gray-300
-          text-white
-        "
-      />
-      <select
-        placeholder="Selecciona un genero"
-        v-model="registerFormData.gender"
-        class="
-          register_input
-          rounded-lg
-          px-4
-          py-2
-          outline-none
-          placeholder-gray-300
-          text-white
-        "
-      >
-        <option selected value="" hidden>Seleccionar genero</option>
-
-        <option value="M" class="bg-primary-dark">Masculino</option>
-        <option value="F" class="bg-primary-dark">Femenino</option>
-      </select>
-      <input
-        v-model="registerFormData.mail"
-        placeholder="Correo electronico"
-        type="text"
-        class="
-          register_input
-          rounded-lg
-          px-4
-          py-2
-          outline-none
-          placeholder-gray-300
-          text-white
-        "
-      />
-      <select
-        v-model="registerFormData.academicDegree"
-        class="
-          register_input
-          rounded-lg
-          px-4
-          py-2
-          outline-none
-          placeholder-gray-300
-          text-white
-        "
-      >
-        <option selected value="" hidden>Seleccionar Grado Academico</option>
-        <option
-          :value="a"
-          class="bg-primary-dark checked:bg-black"
-          v-for="a in academicDegreeOptions"
-          :key="a"
+    <div class="register_form_container  ">
+      <div class="register_form grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <input
+          v-model="registerFormData.username"
+          placeholder="Nombre de usuario"
+          type="text"
+          class="
+            register_input
+            rounded-lg
+            px-4
+            py-2
+            outline-none
+            placeholder-gray-300
+            text-white
+            h
+          "
+        />
+        <input
+          v-model="registerFormData.firstname"
+          placeholder="Nombres"
+          type="text"
+          class="
+            register_input
+            rounded-lg
+            px-4
+            py-2
+            outline-none
+            placeholder-gray-300
+            text-white
+          "
+        />
+        <input
+          v-model="registerFormData.password"
+          placeholder="Contraseña"
+          type="text"
+          class="
+            register_input
+            rounded-lg
+            px-4
+            py-2
+            outline-none
+            placeholder-gray-300
+            text-white
+          "
+        />
+        <input
+          v-model="registerFormData.lastname"
+          placeholder="Apellidos"
+          type="text"
+          class="
+            register_input
+            rounded-lg
+            px-4
+            py-2
+            outline-none
+            placeholder-gray-300
+            text-white
+          "
+        />
+        <input
+          v-model="registerFormData.dni"
+          placeholder="DNI"
+          type="text"
+          class="
+            register_input
+            rounded-lg
+            px-4
+            py-2
+            outline-none
+            placeholder-gray-300
+            text-white
+          "
+        />
+        <input
+          v-model="registerFormData.phone"
+          placeholder="Número de teléfono"
+          type="text"
+          class="
+            register_input
+            rounded-lg
+            px-4
+            py-2
+            outline-none
+            placeholder-gray-300
+            text-white
+          "
+        />
+        <select
+          placeholder="Selecciona un genero"
+          v-model="registerFormData.gender"
+          class="
+            register_input
+            rounded-lg
+            px-4
+            py-2
+            outline-none
+            placeholder-gray-300
+            text-white
+          "
         >
-          {{ a }}
-        </option>
-      </select>
-      <input
-        @change="changeFile($event)"
-        placeholder="Carnet Universitario"
-        type="file"
-        class="
-          register_input
-          rounded-lg
-          px-4
-          py-2
-          outline-none
-          placeholder-gray-300
-          text-white
-        "
-      />
+          <option selected value="" hidden>Seleccionar genero</option>
+
+          <option value="M" class="bg-primary-dark">Masculino</option>
+          <option value="F" class="bg-primary-dark">Femenino</option>
+        </select>
+        <input
+          v-model="registerFormData.mail"
+          placeholder="Correo electronico"
+          type="text"
+          class="
+            register_input
+            rounded-lg
+            px-4
+            py-2
+            outline-none
+            placeholder-gray-300
+            text-white
+          "
+        />
+        <select
+          v-model="registerFormData.academicDegree"
+          class="
+            register_input
+            rounded-lg
+            px-4
+            py-2
+            outline-none
+            placeholder-gray-300
+            text-white
+          "
+        >
+          <option selected value="" hidden>Seleccionar Grado Academico</option>
+          <option
+            :value="a"
+            class="bg-primary-dark checked:bg-black"
+            v-for="a in academicDegreeOptions"
+            :key="a"
+          >
+            {{ a }}
+          </option>
+        </select>
+        <input
+          @change="changeFile($event)"
+          placeholder="Carnet Universitario"
+          type="file"
+          class="
+            register_input
+            rounded-lg
+            px-4
+            py-2
+            outline-none
+            placeholder-gray-300
+            text-white
+          "
+        />
+      </div>
     </div>
-    <div class="register_action flex justify-center py-16">
+    <div class="register_action flex justify-center py-4 2xl:py-16">
       <button
         @click="uploadData"
         class="bg-secondary font-medium text-xl text-white w-80 py-3 rounded-lg"
@@ -177,7 +190,6 @@ export default {
   }),
   mounted() {
     this.$emit("headerUpdate", [
-      
       {
         path: { name: "specialistlogin" },
         name: "Ya tengo una cuenta",
@@ -218,5 +230,8 @@ export default {
 <style>
 .register_input {
   background-color: #6469ff;
+}
+::-webkit-scrollbar {
+  display: none;
 }
 </style>

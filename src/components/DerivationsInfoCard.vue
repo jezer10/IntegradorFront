@@ -1,21 +1,21 @@
 <template>
   <div class="issue_card w-full p-8 bg-white rounded-lg shadow space-y-8">
     <div class="info_row grid grid-cols-3 w-full">
-      <div class="info_first_name flex flex-col">
+      <div class="info_first_name flex flex-col items-center">
         <span class="font-bold text-lg">Paciente</span>
-        <span class="">{{ derivationInfo.patientfullname }}</span>
+        <span class="text-center">{{ derivationInfo.patientfullname }}</span>
       </div>
-      <div class="info_last_name flex flex-col">
+      <div class="info_last_name flex flex-col items-center">
         <span class="font-bold text-lg">Telefono</span>
-        <span class="">{{ derivationInfo.phone }}</span>
+        <span class="text-center">{{ derivationInfo.phone }}</span>
       </div>
-      <div class="info_age flex flex-col">
+      <div class="info_age flex flex-col items-center">
         <span class="font-bold text-lg">Correo</span>
-        <span class="">{{ derivationInfo.correo }}</span>
+        <span class="text-center">{{ derivationInfo.correo }}</span>
       </div>
     </div>
     <div class="info_row grid grid-cols-2 w-full">
-      <div class="info_first_name flex flex-col">
+      <div class="info_first_name flex flex-col items-center">
         <span class="font-bold text-lg">Psicólogo</span>
         <span class="">{{
           derivationInfo.personalfullname
@@ -23,9 +23,9 @@
             : "Sin Asignar"
         }}</span>
       </div>
-      <div class="info_last_name flex flex-col">
-        <span class="font-bold text-lg">Grado Académico</span>
-        <span class="">{{
+      <div class="info_last_name flex flex-col items-center">
+        <span class="font-bold text-lg ">Grado Académico</span>
+        <span class="text-center">{{
           derivationInfo.academicdegree
             ? derivationInfo.academicdegree
             : "Sin Asignar"

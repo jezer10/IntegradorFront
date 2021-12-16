@@ -18,7 +18,6 @@ module.exports = {
         "6/10": "60%",
         "7/10": "70%",
         "8/10": "80%",
-
         "9/10": "90%",
       },
       colors: {
@@ -39,6 +38,9 @@ module.exports = {
       opacity: ["active", "disabled"],
       textColor: ["active"],
       animation: ["active"],
+      backdropBlur:["hover"],
+      backdropContrast:["active"],
+      backdropInvert:["active"]
     },
   },
   plugins: [],

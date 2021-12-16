@@ -1,13 +1,16 @@
 <template>
-  <div class="inq_container w-full py-16 px-32 flex h-full">
+  <div class="inq_container w-full 2xl:py-16 px-4 sm:px-0 2xl:px-32 flex h-full">
     <div
       class="
+        hidden
         inq_description_container
-        flex flex-col
+        sm:flex
+        flex-col
         text-white
         space-y-8
         w-1/2
-        py-32
+        h-full
+        justify-center
       "
     >
       <span class="font-bold text-6xl">Oído Amigo</span>
@@ -17,60 +20,82 @@
       </span>
       <span class="text-2xl">Estamos para escucharte</span>
     </div>
-    <div class="inq_form_container w-1/2 flex justify-end px-16">
-      <div class="inq_form space-y-4 w-4/6">
-        <input
-          class="ipt w-full rounded-lg shadow px-4 py-2"
-          type="text"
-          placeholder="Nombres"
-          v-model="registerModel.firstname"
-        />
-        <input
-          class="ipt w-full rounded-lg shadow px-4 py-2"
-          type="text"
-          placeholder="Apellidos"
-          v-model="registerModel.lastname"
-        />
-        <input
-          class="ipt w-full rounded-lg shadow px-4 py-2"
-          type="text"
-          placeholder="Edad"
-          v-model="registerModel.age"
-        />
-        <input
-          class="ipt w-full rounded-lg shadow px-4 py-2"
-          type="text"
-          placeholder="Número de telefono"
-          v-model="registerModel.phone"
-        />
-        <input
-          class="ipt w-full rounded-lg shadow px-4 py-2"
-          type="text"
-          placeholder="Correo Electrónico"
-          v-model="registerModel.mail"
-        />
-        <input
-          class="ipt w-full rounded-lg shadow px-4 py-2"
-          type="text"
-          placeholder="País o ciudad"
-          v-model="registerModel.location"
-        />
-        <textarea
-          class="ipt w-full rounded-lg shadow resize-none px-4 py-2"
-          rows="6"
-          placeholder="Motivo de consulta"
-          v-model="registerModel.atentionDescription"
-        ></textarea>
-        <div class="accept_terms_container flex items-center space-x-2">
+    <div
+      class="
+        inq_form_container
+        w-full
+        sm:w-1/2
+        flex
+        justify-end
+        h-full
+        items-center
+        2xl:px-16
+      "
+    >
+      <div class="inq_form w-full">
+        <div class="inputs_container grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <input
+            class="ipt w-full rounded-lg shadow px-4 py-2"
+            type="text"
+            placeholder="Nombres"
+            v-model="registerModel.firstname"
+          />
+          <input
+            class="ipt w-full rounded-lg shadow px-4 py-2"
+            type="text"
+            placeholder="Apellidos"
+            v-model="registerModel.lastname"
+          />
+          <input
+            class="ipt w-full rounded-lg shadow px-4 py-2"
+            type="text"
+            placeholder="Edad"
+            v-model="registerModel.age"
+          />
+          <input
+            class="ipt w-full rounded-lg shadow px-4 py-2"
+            type="text"
+            placeholder="Número de telefono"
+            v-model="registerModel.phone"
+          />
+          <input
+            class="ipt w-full rounded-lg shadow px-4 py-2"
+            type="text"
+            placeholder="Correo Electrónico"
+            v-model="registerModel.mail"
+          />
+          <input
+            class="ipt w-full rounded-lg shadow px-4 py-2"
+            type="text"
+            placeholder="País o ciudad"
+            v-model="registerModel.location"
+          />
+          <textarea
+            class="
+              ipt
+              w-full
+              rounded-lg
+              shadow
+              resize-none
+              px-4
+              py-2
+              sm:col-span-2
+            "
+            rows="4"
+            placeholder="Motivo de consulta"
+            v-model="registerModel.atentionDescription"
+          ></textarea>
+        </div>
+        <div class="accept_terms_container flex items-center space-x-2 py-2">
           <input type="checkbox" class="" />
-          <span class="text-white"
+          <span class="text-white text-sm"
             >Acepto las políticas de privacidad y uso de datos</span
           >
         </div>
         <div class="submit_container py-2">
           <button
             @click="registerInquiry"
-            class="btn w-full rounded-lg shadow py-4 text-xl font-medium mt-8"
+            class="btn w-full rounded-lg shadow py-4 text-xl font-medium"
           >
             Siguiente
           </button>

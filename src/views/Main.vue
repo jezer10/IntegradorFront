@@ -1,8 +1,8 @@
 <template>
-  <div class="main_wrapper py-12 px-16 h-screen">
+  <div class="main_wrapper py-4 sm:py-12  sm:px-16 h-screen">
     <MainHeader v-if="showHeader" :rutas="rutas" />
     <div
-      class="main_content flex justify-center items-center"
+      class="main_content flex justify-center items-center mt-12 sm:m-0"
       :class="showHeader ? 'h-9/10' : 'h-full'"
     >
       <router-view v-on:headerUpdate="headerMethod($event)"></router-view>

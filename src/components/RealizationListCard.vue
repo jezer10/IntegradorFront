@@ -18,7 +18,7 @@
     >
       <div class="info_row flex space-x-2 ">
         <span class="font-bold">Nombre: </span>
-        <span class="">{{ specialist.name }}</span>
+        <span class="">{{ specialist.firstname }} {{specialist.lastname}}</span>
       </div>
       <div class="info_row flex space-x-2">
         <span class="font-bold">DNI: </span>

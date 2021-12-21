@@ -1,7 +1,7 @@
 <template>
   <div class="h-full w-full overflow-auto space-y-4">
     <RealizationListCard
-      v-for="(s, i) in specialistsList"
+      v-for="(s, i) in specList"
       :key="s"
       v-bind:specialist="s"
       v-bind:isActive="i == selectedSpecialist ? true : false"
@@ -13,6 +13,11 @@
 import RealizationListCard from "@/components/RealizationListCard.vue";
 export default {
   components: { RealizationListCard },
+  props:["specList"],
+  mounted(){
+    console.log("hola")
+    console.log(this.specList)
+  },
   data: () => ({
     selectedSpecialist: -1,
     specialistsList: [
@@ -46,6 +51,7 @@ export default {
     doSomething(val) {
       this.selectedSpecialist = val;
       console.log(this.selectedSpecialist);
+      this.$emit("specialistSelected",val)
     },
   },
   computed: {

@@ -18,7 +18,7 @@ import PsyList from "@/components/PsyList.vue";
 import Login from "@/components/Login.vue";
 import SelectProfessional from "@/components/SelectProfessional.vue";
 import BlankMain from "@/components/BlankMain.vue";
-
+import PatientResume from "@/components/PatientResume.vue";
 const router = createRouter({
   history: createWebHistory(),
 
@@ -69,6 +69,7 @@ const router = createRouter({
       name: "dashboard",
       redirect: { name: "resume" },
       children: [
+        { path: "youshould", component: PatientResume },
         { path: "psylist", component: PsyList, name: "psylist" },
         { path: "resume", component: AdminResume, name: "resume" },
         { path: "inqlist", component: AdminInqList, name: "inqlist" },
@@ -78,12 +79,16 @@ const router = createRouter({
           name: "derivationslist",
         },
         {
-          path: "derivationsrealization",
+          path: "derivationsrealization/:id",
           name: "realization",
           component: AdminDerivationsRealization,
-
+          redirect: { name: "realizationoptions" },
           children: [
-            { path: "", component: DerivationsRealizationOption },
+            {
+              path: "options",
+              component: DerivationsRealizationOption,
+              name: "realizationoptions",
+            },
             {
               path: "list",
               component: DerivationsRealizationList,

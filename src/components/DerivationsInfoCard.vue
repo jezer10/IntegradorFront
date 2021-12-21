@@ -11,20 +11,20 @@
       </div>
       <div class="info_age flex flex-col items-center">
         <span class="font-bold text-lg">Correo</span>
-        <span class="text-center">{{ derivationInfo.correo }}</span>
+        <span class="text-center">{{ derivationInfo.mail }}</span>
       </div>
     </div>
     <div class="info_row grid grid-cols-2 w-full">
       <div class="info_first_name flex flex-col items-center">
         <span class="font-bold text-lg">Psicólogo</span>
         <span class="">{{
-          derivationInfo.personalfullname
+          derivationInfo.personalfullname != " "
             ? derivationInfo.personalfullname
             : "Sin Asignar"
         }}</span>
       </div>
       <div class="info_last_name flex flex-col items-center">
-        <span class="font-bold text-lg ">Grado Académico</span>
+        <span class="font-bold text-lg">Grado Académico</span>
         <span class="text-center">{{
           derivationInfo.academicdegree
             ? derivationInfo.academicdegree
@@ -67,7 +67,10 @@ export default {
   data: () => ({}),
   methods: {
     routeDerivations() {
-      this.$router.push({name:"realization"})
+      this.$router.push({
+        name: "realization",
+        params: { id: this.derivationInfo.idatention },
+      });
       console.log("hola");
     },
     cancelDerivation() {

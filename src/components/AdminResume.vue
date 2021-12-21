@@ -140,11 +140,12 @@ export default {
   }),
   async mounted() {
     this.getPendientUsers();
-    console.log(this.registerUsers);
   },
   methods: {
     async getPendientUsers() {
       this.registerUsers = await users.getPendientUsers();
+          console.log(this.registerUsers);
+
     },
     derivationsRoute() {
       this.$router.push({

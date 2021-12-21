@@ -1,8 +1,7 @@
 import axios from "axios";
 
 const httpClient = axios.create({
-    baseURL:"https://oiam-node.herokuapp.com",
-    timeout:"2000"
+    baseURL:"http://localhost:3000"
 })
 
 

@@ -22,14 +22,14 @@
     </div>
     <div class="register_card_actions w-full rounded-b-lg">
       <button
-        @click="acceptRegister(userData.iduser)"
+        @click="acceptRegister(userData.idpersona)"
         class="w-1/2 bg-indigo-600 rounded-bl-lg text-white font-bold py-2"
       >
         Aceptar
       </button>
 
       <button
-        @click="denegateRegister(userData.iduser)"
+        @click="denegateRegister(userData.idpersona)"
         class="w-1/2 bg-red-600 rounded-br-lg text-white font-bold py-2"
       >
         Rechazar

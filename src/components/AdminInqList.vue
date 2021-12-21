@@ -1,41 +1,42 @@
 <template>
-  <section class="h-full px-16 py-8">
+  <section class="h-full py-2 px-4 sm:px-16 sm:py-8">
     <InqInfoModal
       v-show="isActiveModel"
       v-on:hide="isActiveModel = false"
       :inquiryInfo="currentInq"
     />
-    <div class="inqlist_title h-1/10 flex items-center">
+    <div class="inqlist_title sm:h-1/10 flex items-center">
       <span class="font-bold text-2xl">Consultas</span>
     </div>
-    <div class="inqlist_container h-9/10 py-8">
-      <div class="inqList_wrapper overflow-y-auto h-full space-y-2">
+    <div class="inqlist_container py-2 sm:h-9/10 sm:py-8">
+      <div class="inqList_wrapper overflow-y-auto sm:h-full space-y-2 ">
         <div
           class="
             inq_card
             bg-white
             p-4
-            w-full
+            sm:w-full
             shadow
             rounded-lg
-            flex
+            inline-block
+            sm:flex
             justify-between
             items-center
           "
           v-for="(i, j) in inqList"
           :key="i"
         >
-          <div class="inq_card_info flex flex-col w-11/12">
+          <div class="inq_card_info flex flex-col sm:w-11/12">
             <span class="text-primary font-bold text-lg"
               >Atencion {{ j + 1 }}
             </span>
-            <div class="info_row grid grid-cols-12 text-center">
-              <span class="col-span-3">{{i.patientfullname}}</span>
-              <span class="col-span-1">{{i.age}} años</span>
-              <span class="col-span-1">{{i.location}}</span>
-              <span class="col-span-2">{{i.phone}}</span>
-              <span class="col-span-3">{{i.mail}}</span>
-              <span class="col-span-2">{{i.atentionpreference=="F" ?'Psicologa':'Psicologo'}}</span>
+            <div class="info_row flex  sm:grid sm:grid-cols-12 text-center">
+              <span class="sm:col-span-3">{{i.patientfullname}}</span>
+              <span class="sm:col-span-1">{{i.age}} años</span>
+              <span class="sm:col-span-1">{{i.location}}</span>
+              <span class="sm:col-span-2">{{i.phone}}</span>
+              <span class="sm:col-span-3">{{i.mail}}</span>
+              <span class="sm:col-span-2">{{i.atentionpreference=="F" ?'Psicologa':'Psicologo'}}</span>
             </div>
           </div>
           <div
@@ -45,7 +46,7 @@
               items-center
               justify-between
               text-white
-              w-1/12
+              sm:w-1/12
             "
           >
             <button

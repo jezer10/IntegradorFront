@@ -64,10 +64,21 @@ const getDerivedAtentions = async () => {
   return [];
 };
 
+const deriveAtention = async (idatention,body) =>{
+  const response = await httpClient.put(`/atentions/derivation/${idatention}`,body)
+  if(response.status==200){
+    return response.data
+  }
+
+  return false
+
+}
+
 export default {
   createAtention,
   getPendientAtentions,
   getDerivedAtentions,
   getAtentions,
-  getAtentionById
+  getAtentionById,
+  deriveAtention
 };

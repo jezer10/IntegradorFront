@@ -80,8 +80,8 @@
               focus:outline-none
               text-white text-lg
             "
-            :class="severyBackClass(inqModel.estado)"
-            v-model="inqModel.estado"
+            :class="severyBackClass(inqModel.situationSevery)"
+            v-model="inqModel.situationSevery"
             @change="derivateIsDisabled"
           >
             <option :value="i.id" class="" v-for="i in inqEstado" :key="i.id">
@@ -92,7 +92,7 @@
             name=""
             id=""
             class="rounded shadow py-2 px-4 focus:outline-none text-lg"
-            v-model="inqModel.diagnosis"
+            v-model="inqModel.quickDiagnosis"
             @change="derivateIsDisabled"
           >
             <option
@@ -120,7 +120,7 @@
         >
           <router-view
             :specList="specList"
-            v-on:specialistSelected="inqModel.specialist = $event"
+            v-on:specialistSelected="inqModel.iduser = specList[$event].idpersona"
           ></router-view>
         </div>
         <div class="derivation_action h-2/10 flex items-center">
@@ -158,8 +158,15 @@ export default {
     this.getSpecList("M");
   },
   methods: {
-    sendInquiryUpdate() {
+    async sendInquiryUpdate() {
       console.log(this.inqModel);
+      const response = await atentions.deriveAtention(this.$route.params.id,this.inqModel)
+      if(response){
+        this.$router.push({
+          name:"derivationslist"
+        })
+      }
+      console.log(response)
     },
     async getDerivationInfo() {
       const response = await atentions.getAtentionById(this.$route.params.id);
@@ -172,7 +179,7 @@ export default {
       this.specList = response;
     },
     derivateIsDisabled() {
-      if (!this.inqModel.estado || !this.inqModel.diagnosis) {
+      if (!this.inqModel.quickDiagnosis || !this.inqModel.situationSevery) {
         return (this.derivateDisabled = true);
       }
       return (this.derivateDisabled = false);

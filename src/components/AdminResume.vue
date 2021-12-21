@@ -1,15 +1,15 @@
 <template>
-  <section class="h-full px-32 py-8">
-    <div class="admin_daily_message flex flex-col h-1/10 justify-center">
+  <section class="w-full h-full px-4 sm:px-32 sm:py-8 overflow-scroll py-2">
+    <div class="admin_daily_message flex flex-col sm:h-1/10 justify-center py-2 sm:py-0">
       <span class="text-lg">Hola, Benjamin David</span>
       <span class="welcome_message font-bold text-lg">Bienvenido</span>
     </div>
-    <div class="admin_contain flex h-9/10 py-8 space-x-32">
-      <div class="register_petitions_card rounded-lg bg-white p-8 w-5/12">
-        <div class="petitions_card_title h-1/10 text-xl font-medium">
+    <div class="admin_contain flex flex-col sm:flex-row sm:h-9/10 sm:py-8 space-y-2 sm:space-y-0 sm:space-x-32">
+      <div class="register_petitions_card rounded-lg bg-white p-2 sm:p-8 w-full sm:w-5/12 space-y-2 sm:space-y-0">
+        <div class="petitions_card_title sm:h-1/10 text-xl font-medium">
           Petición de registro
         </div>
-        <div class="card_content_list overflow-y-auto h-9/10 space-y-8">
+        <div class="card_content_list overflow-y-auto sm:h-9/10 space-y-8">
           <div
             class="blank_banner flex justify-center items-center h-full"
             v-if="registerUsers.length == 0"
@@ -24,10 +24,10 @@
           />
         </div>
       </div>
-      <div class="admin_options_container w-7/12 h-full">
-        <div class="options_grid grid grid-cols-2 grid-rows-2 gap-4 h-full">
+      <div class="admin_options_container w-full sm:w-7/12 sm:h-full">
+        <div class="options_grid grid grid-cols-1 gap-4 sm:grid-cols-2 sm:grid-rows-2  sm:h-full">
           <div
-            class="option_card bg-white p-8 rounded-lg flex flex-col"
+            class="option_card bg-white p-8 rounded-lg flex flex-col border"
             @click="inqListRoute"
           >
             <div
@@ -45,7 +45,7 @@
               <span class="font-bold text-lg">Consultas</span>
             </div>
           </div>
-          <div class="option_card bg-white p-8 rounded-lg flex flex-col" @click="psyListRoute">
+          <div class="option_card bg-white p-8 rounded-lg flex flex-col border" @click="psyListRoute">
             <div
               class="
                 option_card__img_container

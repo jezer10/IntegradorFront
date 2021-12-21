@@ -50,7 +50,7 @@ const router = createRouter({
           component: SelectProfessional,
           name: "preferences",
         },
-        { path: "patient/rate", component: RateSplash },
+        { path: "patient/rate", component: RateSplash,name:"ratesplash" },
         {
           path: "patient/register/success",
           component: SucessfullSplash,
@@ -69,7 +69,7 @@ const router = createRouter({
       name: "dashboard",
       redirect: { name: "resume" },
       children: [
-        { path: "youshould", component: PatientResume },
+        { path: "patient", component: PatientResume ,name:"patient"},
         { path: "psylist", component: PsyList, name: "psylist" },
         { path: "resume", component: AdminResume, name: "resume" },
         { path: "inqlist", component: AdminInqList, name: "inqlist" },

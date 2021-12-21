@@ -1,6 +1,6 @@
 <template>
   <div class="register_card rounded-lg bg-white shadow w-full border">
-    <div class="registar_card_info p-8">
+    <div class="registar_card_info p-2 sm:p-8">
       <div class="info_name">
         <strong class="font-bold text-lg">Nombre: </strong>
         <span class="text-lg"

@@ -1,5 +1,5 @@
 <template>
-  <div class="rate_container w-1/4 px-8">
+  <div class="rate_container  2xl:w-1/4 w-full px-4">
     <div class="staff_info px-16 py-8 space-y-2 text-white">
       <div class="info_hint"><span class="text-sm">Tu psícologo:</span></div>
       <div class="info_name">

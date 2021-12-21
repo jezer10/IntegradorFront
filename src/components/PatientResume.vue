@@ -1,4 +1,5 @@
 <template>
+  <AtentionEndModal/>
   <section class="h-full px-16 py-4">
     <section class="h-full grid grid-cols-2 gap-4">
       <section class="h-full grid grid-rows-2 gap-2">
@@ -57,10 +58,14 @@
           <div class="sessions_container px-8 py-4 space-y-4">
             <div
               v-for="(s, i) in sessions"
-              @click="selectedSession=i"
+              @click="selectedSession = i"
               :key="s.idsesion"
               class="session_item flex justify-center space-x-4 rounded-lg p-2"
-              :class="selectedSession==i ? 'bg-primary' :'bg-gray-100 hover:bg-gray-200'"
+              :class="
+                selectedSession == i
+                  ? 'bg-primary'
+                  : 'bg-gray-100 hover:bg-gray-200'
+              "
             >
               <span class="font-medium text-sm">{{ `Sesion ${i + 1}` }}</span>
               <span class="font-light text-sm">{{ s.dateString }}</span>
@@ -79,9 +84,12 @@
 </template>
 
 <script>
+import AtentionEndModal from "@/components/AtentionEndModal.vue";
 export default {
+  components: { AtentionEndModal },
   data: () => ({
     selectedSession: -1,
+
     sessions: [
       {
         idsesion: "1",

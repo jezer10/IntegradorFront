@@ -11,7 +11,7 @@
       </div>
       <div class="info_age flex flex-col items-center">
         <span class="font-bold text-lg">Correo</span>
-        <span class="text-center">{{ derivationInfo.correo }}</span>
+        <span class="text-center">{{ derivationInfo.mail }}</span>
       </div>
     </div>
     <div class="info_row grid grid-cols-2 w-full">

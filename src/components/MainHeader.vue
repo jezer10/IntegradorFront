@@ -52,7 +52,7 @@
     </div>
 
     <div
-      class="nav-items w-11/12 bg-purple-50 fixed sm:hidden"
+      class="nav-items w-11/12 bg-purple-50 fixed sm:hidden z-50"
       :class="isMenuOpen ? 'left-0' : '-left-full'"
     >
       <ul>

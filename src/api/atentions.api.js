@@ -22,13 +22,31 @@ const createAtention = async ({ atention }) => {
     atentionPreference,
   });
 
-  console.log(response)
-  if(response.status==200){
-    return response.data
+  console.log(response);
+  if (response.status == 200) {
+    return response.data;
   }
 
-  return false
+  return false;
 };
+const getAtentions = async () => {
+  
+  const response = await httpClient.get("/atentions");
+  if (response.status == 200) {
+    return response.data;
+  }
+
+  return [];
+};
+
+const getAtentionById = async (idatention) => {
+  const response = await httpClient.get(`/atentions/derivation/${idatention}`);
+  if (response.status == 200) {
+    return response.data;
+  }
+  return [];
+};
+
 
 const getPendientAtentions = async () => {
   const response = await httpClient.get("/atentions/pendient");
@@ -46,8 +64,21 @@ const getDerivedAtentions = async () => {
   return [];
 };
 
+const deriveAtention = async (idatention,body) =>{
+  const response = await httpClient.put(`/atentions/derivation/${idatention}`,body)
+  if(response.status==200){
+    return response.data
+  }
+
+  return false
+
+}
+
 export default {
   createAtention,
   getPendientAtentions,
   getDerivedAtentions,
+  getAtentions,
+  getAtentionById,
+  deriveAtention
 };

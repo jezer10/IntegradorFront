@@ -17,7 +17,7 @@
         <div class="info_row grid grid-cols-3 w-full">
           <div class="info_first_name flex flex-col">
             <span class="font-bold text-lg">Nombres</span>
-            <span class="">{{inquiryInfo.name}}</span>
+            <span class="">{{ inquiryInfo.fullname }}</span>
           </div>
           <div class="info_last_name flex flex-col">
             <span class="font-bold text-lg">Apellidos</span>
@@ -25,36 +25,35 @@
           </div>
           <div class="info_age flex flex-col">
             <span class="font-bold text-lg">Edad</span>
-            <span class="">33 Años</span>
+            <span class="">{{ inquiryInfo.age }}</span>
           </div>
         </div>
         <div class="info_row grid grid-cols-3 w-full">
           <div class="info_phone flex flex-col">
             <span class="font-bold text-lg">Teléfono</span>
-            <span class="">976387055</span>
+            <span class="">{{ inquiryInfo.phone }}</span>
           </div>
           <div class="info_mail flex flex-col">
             <span class="font-bold text-lg">Correo Electronico</span>
-            <span class="">jezerrazuri@upeu.edu.pe</span>
+            <span class="">{{ inquiryInfo.mail }}</span>
           </div>
           <div class="info_location flex flex-col">
             <span class="font-bold text-lg">Ubicación</span>
-            <span class="">Perú</span>
+            <span class="">{{ inquiryInfo.location }}</span>
           </div>
         </div>
         <div class="info_row grid grid-cols-3 w-full">
           <div class="info_mail flex flex-col col-span-3">
             <span class="font-bold text-lg">Motivo de la consulta</span>
-            <span class=""
-              >Me siente ansioso al estar encerrado mucho tiempo en mi
-              habitacion por la pandemia.</span
-            >
+            <span class="">{{ inquiryInfo.atentiondescription }}</span>
           </div>
         </div>
         <div class="info_row grid grid-cols-3 w-full">
           <div class="info_mail flex flex-col col-span-3">
             <span class="font-bold text-lg">Preferencia de atención</span>
-            <span class="">Psicólogo</span>
+            <span class="">{{
+              inquiryInfo.atentionpreference == "F" ? "Psicologa" : "Psicologo"
+            }}</span>
           </div>
         </div>
       </div>
@@ -71,11 +70,11 @@
 </template>
 <script>
 export default {
-  props:['inquiryInfo'],
+  props: ["inquiryInfo"],
   methods: {
-    hideModal(){
-      this.$emit('hide')
-    }
+    hideModal() {
+      this.$emit("hide");
+    },
   },
 };
 </script>

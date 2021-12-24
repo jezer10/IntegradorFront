@@ -1,5 +1,5 @@
 <template>
-  <header class="dash_header flex justify-between items-center px-8 h-1/10">
+  <header class="dash_header flex justify-between items-center px-2 sm:px-8 h-1/10">
     <div class="header_logo">
       <button
         class="active:bg-primary-dark rounded-full px-4 py-2"
@@ -81,7 +81,7 @@ export default {
     },
     Logout() {
       this.$router.push({
-        name: "specialistlogin",
+        name: "foobar",
       });
     },
   },

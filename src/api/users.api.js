@@ -5,6 +5,15 @@ const getPendientUsers = async () => {
   if (response.status == 200) {
     return response.data;
   }
+  return [];
+};
+
+const getUsersByGender = async (gender) => {
+  const response = await httpClient.get(`/users/personal/gender/${gender}`);
+  if (response.status == 200) {
+    return response.data;
+  }
+  return [];
 };
 
 const registerUser = async (file, registerData) => {
@@ -19,10 +28,10 @@ const registerUser = async (file, registerData) => {
     },
   });
 
-  if(response.status==200){
-    return true
+  if (response.status == 200) {
+    return true;
   }
-  return false
+  return false;
 };
 
 const denegateUser = async (iduser) => {
@@ -48,4 +57,5 @@ export default {
   denegateUser,
   activateUser,
   registerUser,
+  getUsersByGender
 };

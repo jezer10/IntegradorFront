@@ -120,6 +120,9 @@ export default {
   methods: {
     tryLogin() {
       console.log(this.accessKey.join(""));
+      this.$router.push({
+        name:"patient"
+      })
     },
   },
 };

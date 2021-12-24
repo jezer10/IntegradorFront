@@ -21,41 +21,43 @@
           <div class="info_row grid grid-cols-3 w-full">
             <div class="info_first_name flex flex-col">
               <span class="font-bold text-lg">Nombres</span>
-              <span class="">Jezer Gabriel</span>
+              <span class="">{{ inqInfo.patientfirstname }}</span>
             </div>
             <div class="info_last_name flex flex-col">
               <span class="font-bold text-lg">Apellidos</span>
-              <span class="">Rázuri Pichén</span>
+              <span class="">{{ inqInfo.patientlastname }}</span>
             </div>
             <div class="info_age flex flex-col">
               <span class="font-bold text-lg">Edad</span>
-              <span class="">33 Años</span>
+              <span class="">{{ inqInfo.age }}</span>
             </div>
           </div>
           <div class="info_row grid grid-cols-3 w-full">
             <div class="info_first_name flex flex-col">
               <span class="font-bold text-lg">Telefono</span>
-              <span class="">Jezer Gabriel Rázuri Pichén</span>
+              <span class="">{{ inqInfo.phone }}</span>
             </div>
             <div class="info_last_name flex flex-col">
               <span class="font-bold text-lg">Correo</span>
-              <span class="">Rázuri Pichén</span>
+              <span class="">{{ inqInfo.mail }}</span>
             </div>
             <div class="info_age flex flex-col">
               <span class="font-bold text-lg">Ubicación</span>
-              <span class="">33 Años</span>
+              <span class="">{{ inqInfo.location }}</span>
             </div>
           </div>
           <div class="info_row w-full">
             <div class="info_first_name flex flex-col">
               <span class="font-bold text-lg">Motivo de la consulta</span>
-              <span class="">Jezer Gabriel Rázuri Pichén</span>
+              <span class="">{{ inqInfo.atentiondescription }}</span>
             </div>
           </div>
           <div class="info_row grid grid-cols-3 w-full">
             <div class="info_first_name flex flex-col">
               <span class="font-bold text-lg">Preferencia de atencion</span>
-              <span class="">Psicologo</span>
+              <span class="">{{
+                inqInfo.atentionpreference == "F" ? "Psicologa" : "Psicologo"
+              }}</span>
             </div>
           </div>
         </div>
@@ -70,19 +72,17 @@
           "
         >
           <select
-            name=""
-            id=""
             class="
               rounded
               shadow
               py-2
               px-4
-              
               focus:outline-none
               text-white text-lg
             "
-            :class="severyBackClass(inqEstadoModel)"
-            v-model="inqEstadoModel"
+            :class="severyBackClass(inqModel.situationSevery)"
+            v-model="inqModel.situationSevery"
+            @change="derivateIsDisabled"
           >
             <option :value="i.id" class="" v-for="i in inqEstado" :key="i.id">
               {{ i.name }}
@@ -92,8 +92,15 @@
             name=""
             id=""
             class="rounded shadow py-2 px-4 focus:outline-none text-lg"
+            v-model="inqModel.quickDiagnosis"
+            @change="derivateIsDisabled"
           >
-            <option :value="i.id" class="" v-for="i in inqDiagnosis" :key="i.id">
+            <option
+              :value="i.id"
+              class=""
+              v-for="i in inqDiagnosis"
+              :key="i.id"
+            >
               {{ i.name }}
             </option>
           </select>
@@ -111,10 +118,14 @@
             p-8
           "
         >
-          <router-view></router-view>
+          <router-view
+            :specList="specList"
+            v-on:specialistSelected="inqModel.iduser = specList[$event].idpersona"
+          ></router-view>
         </div>
         <div class="derivation_action h-2/10 flex items-center">
           <button
+            @click="sendInquiryUpdate"
             class="
               w-full
               bg-indigo-500
@@ -125,7 +136,7 @@
               font-bold
               disabled:opacity-60
             "
-            disabled
+            :disabled="derivateDisabled"
           >
             Derivar
           </button>
@@ -137,12 +148,43 @@
 <script>
 import DerivationsInfoCard from "./DerivationsInfoCard.vue";
 import ConfirmModal from "./ConfirmModal.vue";
+import atentions from "@/api/atentions.api.js";
+import users from "@/api/users.api.js";
+
 export default {
   components: { DerivationsInfoCard, ConfirmModal },
+  mounted() {
+    this.getDerivationInfo();
+    this.getSpecList("M");
+  },
   methods: {
-
+    async sendInquiryUpdate() {
+      console.log(this.inqModel);
+      const response = await atentions.deriveAtention(this.$route.params.id,this.inqModel)
+      if(response){
+        this.$router.push({
+          name:"derivationslist"
+        })
+      }
+      console.log(response)
+    },
+    async getDerivationInfo() {
+      const response = await atentions.getAtentionById(this.$route.params.id);
+      console.log(response);
+      this.inqInfo = response;
+    },
+    async getSpecList(val) {
+      const response = await users.getUsersByGender(val);
+      console.log(response);
+      this.specList = response;
+    },
+    derivateIsDisabled() {
+      if (!this.inqModel.quickDiagnosis || !this.inqModel.situationSevery) {
+        return (this.derivateDisabled = true);
+      }
+      return (this.derivateDisabled = false);
+    },
     severyBackClass(val) {
-      console.log(val)
       switch (val) {
         case "1":
           return "bg-success ";
@@ -158,7 +200,10 @@ export default {
   data: () => ({
     derivationsIssues: [1, 2, 3, 4, 5],
     derivationsCompleted: [{ state: "hola" }, { state: "hola" }],
-    inqEstadoModel:'',
+    inqModel: {},
+    inqInfo: {},
+    specList: [],
+    derivateDisabled: true,
     inqEstado: [
       { id: "1", name: "Leve" },
       { id: "2", name: "Moderada" },

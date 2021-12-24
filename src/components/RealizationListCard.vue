@@ -1,7 +1,7 @@
 <template>
   <div
     @click="activeListItem"
-    class="psy_card w-full bg-white shadow rounded-lg h-1/2 2xl:h-1/3 flex"
+    class="psy_card w-full bg-white  rounded-lg h-1/2 2xl:h-1/3 flex"
     :class="isActive ? '' : 'hover:opacity-80 hover:shadow-none'"
   >
     <div
@@ -34,7 +34,7 @@
       </div>
     </div>
     <div
-      class="w-2/12 h-full rounded-r-lg flex justify-center p-4"
+      class="w-2/12  rounded-r-lg flex justify-center p-2"
       :class="isActive ? 'bg-green-400' : 'bg-gray-200'"
     >
       <CheckIcon :class="isActive ? 'text-white' : 'text-black'" />
@@ -51,7 +51,6 @@ export default {
   data: () => ({}),
   methods: {
     activeListItem() {
-      console.log(this.isActive);
       this.$emit("myEvent");
     },
   },

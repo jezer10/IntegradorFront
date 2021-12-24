@@ -15,23 +15,24 @@
     <div
       class="
         modal_card
-        w-1/2
+        w-full sm:w-1/3
         bg-primary-light
-        p-8
-        rounded-lg
+        px-4 py-16
+        rounded-2xl
         text-white text-center
+        space-y-16
       "
     >
-      <div class="space-y-4 flex flex-col justify-center items-center">
+      <div class="space-y-2 flex flex-col justify-center items-center">
         <span class="font-bold text-2xl">ESPERA...</span>
-        <span
+        <span class="text-lg"
           >Hola usuario, haz completado todas tus sesiones y ya no hay mas
           actividades por hacer, para finalizar tu consulta puedes evaluar la
           atención</span
         >
       </div>
-      <div class="py-8">
-        <button class="bg-secondary py-2 w-1/2 rounded-lg" @click="routeToRate">Finalizar</button>
+      <div class="">
+        <button class="bg-secondary py-3 w-1/2 rounded-lg font-medium text-xl"  @click="routeToRate">Finalizar</button>
       </div>
     </div>
   </div>

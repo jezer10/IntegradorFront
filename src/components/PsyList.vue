@@ -1,7 +1,7 @@
 <template>
   <PsyInfoModal v-show="isActiveModel"
       v-on:hide="isActiveModel = false"/>
-  <section class="h-full px-32">
+  <section class="h-full sm:px-32">
     <div class="list_title h-1/10 flex items-center">
       <span class="font-bold text-2xl">Psicólogos</span>
     </div>

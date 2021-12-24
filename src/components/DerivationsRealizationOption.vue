@@ -4,13 +4,17 @@
       <div class="card_title_container w-1/2 h-full flex items-end">
         <span class="text-2xl font-medium">Psicologos</span>
       </div>
-      <div class="card_img_container w-1/2 h-full"></div>
+      <div class="card_img_container w-1/2 h-full flex justify-center">
+      <img src="@/assets/images/psy_option.png" alt="" class="h-full"></div>
     </div>
-    <div class="option_expert_card p-8 w-full rounded-lg shadow">
+    <div class="option_expert_card p-8 w-full rounded-lg shadow flex">
       <div class="card_title_container w-1/2 h-full flex items-end">
         <span class="text-2xl font-medium">Especialistas</span>
       </div>
-      <div class="card_img_container w-1/2 h-full"></div>
+      <div class="card_img_container w-1/2 h-full flex justify-center">
+            <img src="@/assets/images/spec_option.png" alt="" class="h-full">
+
+      </div>
     </div>
   </div>
 </template>

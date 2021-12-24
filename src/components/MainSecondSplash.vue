@@ -12,13 +12,13 @@
         items-start
       "
     >
-      <span class="font-bold text-5xl">Ofrecete como voluntario</span>
-      <span class="font-bold"
+      <span class="font-bold text-5xl sm:text-6xl">Ofrecete como voluntario</span>
+      <span class="font-normal text-lg"
         >Atención psicológica virtual gratuita como medida de afronte a la
         crisis de salud provocada por la pandemia de COVID – 19.</span
       >
       <button
-        class="start_button font-bold rounded-full shadow px-16 py-2 bg-secondary"
+        class="start_button font-bold rounded-full shadow text-lg px-16 py-3 bg-secondary"
     
         @click="startActivity"
       >

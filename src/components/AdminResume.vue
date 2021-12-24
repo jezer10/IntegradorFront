@@ -27,7 +27,7 @@
       <div class="admin_options_container w-full sm:w-7/12 sm:h-full">
         <div class="options_grid grid grid-cols-1 gap-4 sm:grid-cols-2 sm:grid-rows-2  sm:h-full">
           <div
-            class="option_card bg-white p-8 rounded-lg flex flex-col border"
+            class="option_card bg-white p-8 rounded-lg flex flex-col "
             @click="inqListRoute"
           >
             <div
@@ -45,7 +45,7 @@
               <span class="font-bold text-lg">Consultas</span>
             </div>
           </div>
-          <div class="option_card bg-white p-8 rounded-lg flex flex-col border" @click="psyListRoute">
+          <div class="option_card bg-white p-8 rounded-lg flex flex-col" @click="psyListRoute">
             <div
               class="
                 option_card__img_container

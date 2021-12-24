@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class="card_actions col-span-2 grid grid-cols-2">
-      <div class="edit_action_container flex justify-center">
+      <div class="edit_action_container flex justify-center items-center">
         <button
           class="
             btn-primary
@@ -38,7 +38,7 @@
           <PencilIcon class="" />
         </button>
       </div>
-      <div class="delete_action_container flex justify-center">
+      <div class="delete_action_container flex justify-center items-center">
         <button
           class="
             btn-danger

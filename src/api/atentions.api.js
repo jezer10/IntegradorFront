@@ -74,11 +74,22 @@ const deriveAtention = async (idatention,body) =>{
 
 }
 
+const cancelDerivation = async (idatention)=>{
+  const response = await httpClient.delete(`/atentions/derivation/${idatention}`)
+  console.log(response)
+  if(response.status==200){
+    return response.data
+  }
+  return false;
+}
+
+
 export default {
   createAtention,
   getPendientAtentions,
   getDerivedAtentions,
   getAtentions,
   getAtentionById,
-  deriveAtention
+  deriveAtention,
+  cancelDerivation
 };

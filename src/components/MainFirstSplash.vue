@@ -1,5 +1,5 @@
 <template>
-  <div class="splashs_container w-full h-full">
+  <div class="splashs_container w-full h-full flex">
     <div
       class="
         w-full
@@ -7,24 +7,26 @@
         h-full
         justify-center
         text-white
-        flex flex-col
+        flex flex-col 
         space-y-16
         items-start
       "
     >
-      <span class="font-bold text-5xl">Recibe atención psicologíca</span>
-      <span class="font-bold"
+      <span class="font-bold text-5xl sm:text-6xl">Recibe atención psicologíca</span>
+      <span class="font-normal text-lg"
         >Atención psicológica virtual gratuita como medida de afronte a la
         crisis de salud provocada por la pandemia de COVID – 19.</span
       >
       <button
-        class="start_button font-bold rounded-full shadow px-16 py-2"
+        class="start_button font-bold text-lg px-16 py-3 rounded-full shadow "
         @click="startActivity"
       >
         Empezar
       </button>
     </div>
-    <div class="w-1/2 hidden sm:block"></div>
+    <div class="w-1/2 hidden  sm:flex justify-center items-center">
+    <img src="@/assets/images/splash_one.png" alt="">
+    </div>
   </div>
 </template>
 

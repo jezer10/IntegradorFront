@@ -1,10 +1,19 @@
 <template>
-  <section class="h-full px-16 py-8">
-    <div class="derivations_title h-1/10 flex items-center">
+  <section class="h-full px-4 sm:px-16 sm:py-8">
+    <div class="derivations_title sm:h-1/10 flex items-center">
       <span class="font-bold text-2xl">Derivaciones</span>
     </div>
-    <div class="derivations_container h-9/10 px-8 py-8 space-x-4 2xl:space-x-64 flex">
-      <div class="derivations_issues_container w-1/2 h-full">
+    <div
+      class="
+        derivations_container
+        sm:h-9/10
+        sm:p-8
+        sm:space-x-4
+        2xl:space-x-64
+        flex  flex-col sm:flex-row
+      "
+    >
+      <div class="derivations_issues_container w-full sm:w-1/2 h-full">
         <div class="issues_title flex justify-center h-1/10">
           <span class="font-bold text-2xl">Pendientes</span>
         </div>
@@ -25,7 +34,7 @@
           </div>
         </div>
       </div>
-      <div class="derivations_completed_container w-1/2 h-full">
+      <div class="derivations_completed_container w-full sm:w-1/2 h-full">
         <div class="completed_title flex justify-center h-1/10">
           <span class="font-bold text-2xl">Derivados</span>
         </div>
@@ -38,6 +47,7 @@
               <span class="text-gray-500">No hay Derivaciones</span>
             </div>
             <DerivationsInfoCard
+              v-on:derivationChanged="getAtentions"
               :derivationAction="false"
               v-for="d in derivationsCompleted"
               :key="d.id"
@@ -60,19 +70,20 @@ export default {
   }),
 
   async mounted() {
-    this.getPendientAtentions();
-    this.getDerivedAtentions();
+    this.getAtentions();
   },
   methods: {
+    async getAtentions() {
+      this.getPendientAtentions();
+      this.getDerivedAtentions();
+    },
     async getPendientAtentions() {
       const response = await atentions.getPendientAtentions();
       this.derivationsIssues = response;
-      console.log(response);
     },
     async getDerivedAtentions() {
       const response = await atentions.getDerivedAtentions();
       this.derivationsCompleted = response;
-      console.log(response);
     },
   },
 };

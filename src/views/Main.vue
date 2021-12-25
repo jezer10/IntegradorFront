@@ -1,11 +1,11 @@
 <template>
-  <div class="main_wrapper py-4 sm:py-12  sm:px-16 h-screen">
+  <div class="main_wrapper py-4 sm:py-12  sm:px-16 h-screen relative sm:static">
     <MainHeader v-if="showHeader" :rutas="rutas" />
     <div
       class="main_content flex justify-center items-center  sm:m-0"
       :class="showHeader ? 'box-content h-9/10 mt-12' : 'h-full'"
     >
-      <router-view v-on:headerUpdate="headerMethod($event)"></router-view>
+      <router-view v-on:headerUpdate="headerMethod($event)" class="absolute z-10 sm:static"></router-view>
     </div>
   </div>
 </template>

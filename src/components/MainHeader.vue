@@ -10,6 +10,7 @@
       l-0
       bg-primary-dark
       sm:bg-transparent
+       z-50
     "
   >
     <div
@@ -52,7 +53,7 @@
     </div>
 
     <div
-      class="nav-items w-11/12 bg-purple-50 fixed sm:hidden z-50"
+      class="nav-items w-11/12 bg-purple-50 fixed sm:hidden "
       :class="isMenuOpen ? 'left-0' : '-left-full'"
     >
       <ul>

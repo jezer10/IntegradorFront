@@ -1,8 +1,8 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
-  purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
-  darkMode: false, // or 'media' or 'class'
+  content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
+  darkMode: "media", // or 'media' or 'class'
   theme: {
     fontFamily: {
       roboto: ["'Roboto'", ...defaultTheme.fontFamily.sans],
@@ -34,13 +34,13 @@ module.exports = {
   },
   variants: {
     extend: {
-      backgroundColor: ["checked", "active","checked"],
+      backgroundColor: ["checked", "active", "checked"],
       opacity: ["active", "disabled"],
       textColor: ["active"],
       animation: ["active"],
-      backdropBlur:["hover"],
-      backdropContrast:["active"],
-      backdropInvert:["active"]
+      backdropBlur: ["hover"],
+      backdropContrast: ["active"],
+      backdropInvert: ["active"],
     },
   },
   plugins: [],

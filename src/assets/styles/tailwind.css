@@ -9,3 +9,32 @@
     src: url(../fonts/roboto/Roboto-Regular.ttf) format("ttf");
   }
 }
+
+@layer components {
+  .form_input {
+    @apply bg-primary-light rounded-lg
+              px-4
+              py-2
+              outline-none
+              placeholder-gray-300
+              text-white;
+  }
+  .is_required{
+    @apply border border-dashed border-red-500;
+  }
+  .btn_secondary{
+    @apply bg-secondary
+              font-medium
+              text-xl text-white
+              py-3
+              w-full
+              rounded-lg;
+  }
+  .form_file{
+    @apply file:py-2 file:px-8 file:rounded-lg file:border-0 file:mr-4 file:bg-primary-light file:text-white text-gray-300 hover:file:opacity-80;
+  }
+  .is_required_file{
+    @apply file:border file:border-dashed file:border-red-500;
+
+  }
+}

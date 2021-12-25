@@ -4,8 +4,7 @@
       class="
         login_slider_container
         w-1/2
-        sm:flex sm:flex-col
-        sm:items-center´
+        sm:flex sm:flex-col sm:items-center sm:justify-center
         hidden
         px-32
         2xl:px-64
@@ -22,12 +21,16 @@
         >
       </div>
       <div class="slider_dots flex justify-center space-x-4 items-center">
-        <div class="dot rounded-full w-2 h-2 2xl:w-3 2xl:h-3 bg-primary-dark"></div>
+        <div
+          class="dot rounded-full w-2 h-2 2xl:w-3 2xl:h-3 bg-primary-dark"
+        ></div>
         <div class="dot rounded-full w-3 h-3 2xl:w-4 2xl:h-4 bg-white"></div>
         <div class="dot rounded-full w-3 h-3 2xl:w-4 2xl:h-4 bg-white"></div>
       </div>
     </div>
-    <div class="login_form_container w-full sm:w-1/2 flex justify-center h-full">
+    <div
+      class="login_form_container w-full sm:w-1/2 flex justify-center h-full"
+    >
       <div
         class="
           code_form
@@ -35,7 +38,8 @@
           justify-center
           items-center
           text-white
-          space-y-8 sm:space-y-24
+          space-y-8
+          sm:space-y-24
         "
       >
         <div class="top_container sm:px-8 flex flex-col items-center space-y-4">
@@ -43,39 +47,57 @@
           <div class="code_input_group space-x-2">
             <input
               type="text"
+              ref="firstInput"
               class="cipt w-12 h-12 px-2 text-center rounded font-bold"
               maxlength="1"
               v-model="accessKey[0]"
+              @input="focusNextInput"
+              @keyup.delete="focusPreviousInput"
             />
             <input
               type="text"
+              ref="secondInput"
               class="cipt w-12 h-12 px-2 text-center rounded font-bold"
               maxlength="1"
               v-model="accessKey[1]"
+              @input="focusNextInput"
+              @keyup.delete="focusPreviousInput"
             />
             <input
               type="text"
+              ref="thirdInput"
               class="cipt w-12 h-12 px-2 text-center rounded font-bold"
               maxlength="1"
               v-model="accessKey[2]"
+              @input="focusNextInput"
+              @keyup.delete="focusPreviousInput"
             />
             <input
               type="text"
+              ref="fourthInput"
               class="cipt w-12 h-12 px-2 text-center rounded font-bold"
               maxlength="1"
               v-model="accessKey[3]"
+              @input="focusNextInput"
+              @keyup.delete="focusPreviousInput"
             />
             <input
               type="text"
+              ref="fifthInput"
               class="cipt w-12 h-12 px-2 text-center rounded font-bold"
               maxlength="1"
               v-model="accessKey[4]"
+              @input="focusNextInput"
+              @keyup.delete="focusPreviousInput"
             />
             <input
               type="text"
+              ref="sixthInput"
               class="cipt w-12 h-12 px-2 text-center rounded font-bold"
               maxlength="1"
               v-model="accessKey[5]"
+              @input="focusNextInput"
+              @keyup.delete="focusPreviousInput"
             />
           </div>
         </div>
@@ -107,6 +129,7 @@ export default {
     accessKey: ["", "", "", "", "", ""],
   }),
   mounted() {
+    this.$refs.firstInput.focus();
     this.$emit("headerUpdate", [
       { path: {}, name: "Mas Información", type: "none" },
       { path: {}, name: "Contacto", type: "none" },
@@ -118,11 +141,27 @@ export default {
     ]);
   },
   methods: {
+    focusPreviousInput(e) {
+      if (e.target.previousElementSibling) {
+        e.target.previousElementSibling.focus();
+      }
+    },
+    focusNextInput(e) {
+      if (e.data) {
+        if (e.data.trim().length != 0) {
+          if (e.target.nextElementSibling) {
+            e.target.nextElementSibling.focus();
+          }
+        } else {
+          e.target.value = "";
+        }
+      }
+    },
     tryLogin() {
       console.log(this.accessKey.join(""));
       this.$router.push({
-        name:"patient"
-      })
+        name: "patient",
+      });
     },
   },
 };
